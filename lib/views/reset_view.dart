@@ -43,7 +43,7 @@ class _ResetViewState extends State<ResetView> {
   Widget buildEmail() {
     return TextFormField(
       onChanged: (value) => _email = value,
-      decoration: InputDecoration(hintText: 'Email'),
+      decoration: InputDecoration(labelText: 'Email'),
     );
   }
 

@@ -46,7 +46,7 @@ class _LoginViewState extends State<LoginView> {
   Widget buildEmail() {
     return TextFormField(
       onChanged: (value) => _email = value,
-      decoration: InputDecoration(hintText: 'Email'),
+      decoration: InputDecoration(labelText: 'Email'),
     );
   }
 
@@ -54,7 +54,7 @@ class _LoginViewState extends State<LoginView> {
     return TextFormField(
       onChanged: (value) => _password = value,
       obscureText: true,
-      decoration: InputDecoration(hintText: 'Password'),
+      decoration: InputDecoration(labelText: 'Password'),
     );
   }
 

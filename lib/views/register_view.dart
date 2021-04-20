@@ -1,4 +1,3 @@
-import 'package:flutter_crud_with_firestore_app/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_crud_with_firestore_app/services/authentification_service.dart';
 import 'package:provider/provider.dart';
@@ -44,7 +43,7 @@ class _RegisterViewState extends State<RegisterView> {
   Widget buildEmail() {
     return TextFormField(
       onChanged: (value) => _email = value,
-      decoration: InputDecoration(hintText: 'Email'),
+      decoration: InputDecoration(labelText: 'Email'),
     );
   }
 
@@ -52,7 +51,7 @@ class _RegisterViewState extends State<RegisterView> {
     return TextFormField(
       onChanged: (value) => _password = value,
       obscureText: true,
-      decoration: InputDecoration(hintText: 'Password'),
+      decoration: InputDecoration(labelText: 'Password'),
     );
   }
 
@@ -75,6 +74,8 @@ class _RegisterViewState extends State<RegisterView> {
 
     if (error.isNotEmpty) {
       setState(() => _error = error);
+    } else {
+      Navigator.pop(context);
     }
   }
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud_with_firestore_app/locator.dart';
 import 'package:flutter_crud_with_firestore_app/models/customer.dart';
+import 'package:flutter_crud_with_firestore_app/services/authentification_service.dart';
 import 'package:flutter_crud_with_firestore_app/services/firestore_customer_service.dart';
 import 'package:flutter_crud_with_firestore_app/views/customers/customer.dart';
+import 'package:provider/provider.dart';
 
 class CustomersView extends StatefulWidget {
   @override
@@ -29,7 +31,19 @@ class _CustomersViewState extends State<CustomersView> {
   }
 
   AppBar buildAppBar() {
-    return AppBar(title: Text('Customers'));
+    return AppBar(
+      title: Text('Customers'),
+      actions: [
+        buildButtonLogout(),
+      ],
+    );
+  }
+
+  Widget buildButtonLogout() {
+    return IconButton(
+      icon: Icon(Icons.logout),
+      onPressed: _logout,
+    );
   }
 
   Widget buildBody() {
@@ -91,5 +105,13 @@ class _CustomersViewState extends State<CustomersView> {
 
   _editCustomer(Customer? customer) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => CustomerView(customer: customer)));
+  }
+
+  _logout() async {
+    String error = await context.read<AuthentificationService>().signOut();
+
+    if (error.isNotEmpty) {
+      setState(() => _error = error);
+    }
   }
 }

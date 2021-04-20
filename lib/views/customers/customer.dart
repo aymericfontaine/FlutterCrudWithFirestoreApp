@@ -56,7 +56,7 @@ class _CustomerViewState extends State<CustomerView> {
     return TextFormField(
       initialValue: _customer.name,
       onChanged: (value) => _customer.name = value,
-      decoration: InputDecoration(hintText: 'Name'),
+      decoration: InputDecoration(labelText: 'Name'),
     );
   }
 
@@ -66,7 +66,7 @@ class _CustomerViewState extends State<CustomerView> {
       onChanged: (value) => _customer.age = int.parse(value),
       keyboardType: TextInputType.number,
       inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
-      decoration: InputDecoration(hintText: 'Age'),
+      decoration: InputDecoration(labelText: 'Age'),
     );
   }
 
