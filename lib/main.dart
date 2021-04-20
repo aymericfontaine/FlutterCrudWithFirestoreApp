@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_crud_with_firestore_app/locator.dart';
 import 'package:flutter_crud_with_firestore_app/routes.dart';
 import 'package:flutter_crud_with_firestore_app/services/authentification_service.dart';
+import 'package:flutter_crud_with_firestore_app/views/customers/customers.dart';
 import 'package:flutter_crud_with_firestore_app/views/login_view.dart';
 import 'package:provider/provider.dart';
 

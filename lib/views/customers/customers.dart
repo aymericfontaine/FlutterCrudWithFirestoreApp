@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_crud_with_firestore_app/locator.dart';
 import 'package:flutter_crud_with_firestore_app/models/customer.dart';
 import 'package:flutter_crud_with_firestore_app/services/firestore_customer_service.dart';
+import 'package:flutter_crud_with_firestore_app/views/customers/customer.dart';
 
 class CustomersView extends StatefulWidget {
   @override
@@ -73,7 +74,7 @@ class _CustomersViewState extends State<CustomersView> {
     return ListTile(
       title: Text(customer.name),
       subtitle: Text(customer.age.toString() + " year(s)"),
-      onTap: null,
+      onTap: () => _editCustomer(customer),
     );
   }
 
@@ -83,8 +84,12 @@ class _CustomersViewState extends State<CustomersView> {
 
   Widget buildButtonAdd() {
     return FloatingActionButton(
-      onPressed: null,
+      onPressed: () => _editCustomer(null),
       child: Icon(Icons.add),
     );
+  }
+
+  _editCustomer(Customer? customer) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => CustomerView(customer: customer)));
   }
 }
